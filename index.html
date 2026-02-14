@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wasla Counseling - Educational Guidance Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --light-blue: #e6f2ff;
+            --dark-blue: #003d82;
+            --accent-blue: #0080ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: var(--primary-blue) !important;
+        }
+        
+        .nav-link {
+            color: #333 !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-blue) !important;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-hero {
+            background-color: white;
+            color: var(--primary-blue);
+            padding: 12px 30px;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .service-card {
+            background-color: var(--light-blue);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+        
+        /* Steps Section */
+        .steps-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--dark-blue);
+        }
+        
+        /* Counselors Section */
+        .counselors-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .counselor-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .counselor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .counselor-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .counselor-info {
+            padding: 25px;
+        }
+        
+        .counselor-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--dark-blue);
+        }
+        
+        .counselor-title {
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .btn-cta {
+            background-color: white;
+            color: var(--primary-blue);
+            padding: 15px 40px;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: all 0.3s;
+            border: none;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--light-blue);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">Wasla Counseling</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#steps">Process</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#testimonials">Testimonials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#counselors">Counselors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Expert Guidance From Those Who Guide Students Every Day</h1>
+            <p class="hero-subtitle">Professional educational counseling to help you navigate your academic journey with confidence</p>
+            <button class="btn btn-hero">Get Started Today</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="service-title">Career Planning</h3>
+                        <p>Discover your ideal career path with our comprehensive assessment and planning tools. We help you align your strengths and interests with rewarding career opportunities.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="service-title">Academic Issues</h3>
+                        <p>Overcome academic challenges with personalized support. Our experts help with study strategies, time management, and subject-specific guidance.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="service-title">College Selection</h3>
+                        <p>Find the perfect college or university that matches your goals, interests, and budget. We guide you through the entire application process.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="service-title">Application Support</h3>
+                        <p>Stand out from the competition with our application review and enhancement services. We help you present your best self.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h3 class="service-title">Financial Aid</h3>
+                        <p>Navigate the complex world of financial aid, scholarships, and student loans with our expert guidance to make education affordable.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="service-title">Interview Prep</h3>
+                        <p>Master your college or job interviews with our preparation sessions. Build confidence and make a lasting impression.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section id="steps" class="steps-section">
+        <div class="container">
+            <h2 class="section-title">4 Simple Steps to Your Success</h2>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Initial Consultation</h3>
+                        <p>Meet with our counselors to discuss your goals, challenges, and aspirations. We'll create a personalized plan tailored to your needs.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Assessment & Planning</h3>
+                        <p>Complete our comprehensive assessment to identify your strengths, interests, and opportunities. We'll develop a detailed action plan.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Implementation</h3>
+                        <p>Execute your personalized plan with ongoing support from our expert counselors. We'll help you overcome obstacles and stay on track.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Achieve Your Goals</h3>
+                        <p>Reach your educational and career objectives with confidence. Celebrate your success and plan for continued growth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Wasla Counseling helped me identify my true passion and guided me through the entire college application process. I'm now studying at my dream university!"</p>
+                        <p class="testimonial-author">- Sarah Johnson</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The career planning services were invaluable. I discovered a field I never considered and now I'm thriving in a career I love."</p>
+                        <p class="testimonial-author">- Michael Chen</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Thanks to Wasla Counseling, I overcame my academic struggles and improved my grades significantly. The support was life-changing."</p>
+                        <p class="testimonial-author">- Emily Rodriguez</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Counselors Section -->
+    <section id="counselors" class="counselors-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Expert Counselors</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="counselor-card">
+                        <img src="https://i.postimg.cc/NffGpNmM/Dr-Amanda-Roberts.jpg" alt="Counselor" class="counselor-img">
+                        <div class="counselor-info">
+                            <h3 class="counselor-name">Dr. Amanda Roberts</h3>
+                            <p class="counselor-title">Career Planning Specialist</p>
+                            <p>15+ years of experience helping students find their ideal career paths.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="counselor-card">
+                        <img src="https://i.postimg.cc/tRDpZhwj/Prof-James-Wilson.jpg" alt="Counselor" class="counselor-img">
+                        <div class="counselor-info">
+                            <h3 class="counselor-name">Prof. James Wilson</h3>
+                            <p class="counselor-title">Academic Advisor</p>
+                            <p>Expert in academic strategies and educational planning for high school and college students.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="counselor-card">
+                        <img src="https://i.postimg.cc/pTCbjH0J/Dr-Lisa-Park.jpg" alt="Counselor" class="counselor-img">
+                        <div class="counselor-info">
+                            <h3 class="counselor-name">Dr. Lisa Park</h3>
+                            <p class="counselor-title">College Admissions Expert</p>
+                            <p>Former admissions officer with insider knowledge of the college application process.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="counselor-card">
+                        <img src="https://i.postimg.cc/wTZKLFkP/Mark-Thompson.jpg" alt="Counselor" class="counselor-img">
+                        <div class="counselor-info">
+                            <h3 class="counselor-name">Mark Thompson</h3>
+                            <p class="counselor-title">Financial Aid Specialist</p>
+                            <p>Helping families navigate financial aid options to make education affordable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to Start Your Journey?</h2>
+            <p class="mb-4">Take the first step toward achieving your educational and career goals</p>
+            <button class="btn btn-cta">Get Started Today</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h4>Wasla Counseling</h4>
+                    <p>Expert guidance for your educational journey</p>
+                </div>
+                <div class="col-md-6 text-md-end mb-4">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr style="background-color: rgba(255,255,255,0.2); margin: 20px 0;">
+            <div class="text-center">
+                <p>&copy; 2026 Wasla Counseling. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active class to nav items when scrolling
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Button click handlers
+        document.querySelectorAll('.btn-hero, .btn-cta').forEach(button => {
+            button.addEventListener('click', () => {
+                // Create a simple modal for contact form
+                const modal = document.createElement('div');
+                modal.style.position = 'fixed';
+                modal.style.top = '0';
+                modal.style.left = '0';
+                modal.style.width = '100%';
+                modal.style.height = '100%';
+                modal.style.backgroundColor = 'rgba(0,0,0,0.7)';
+                modal.style.display = 'flex';
+                modal.style.justifyContent = 'center';
+                modal.style.alignItems = 'center';
+                modal.style.zIndex = '2000';
+                
+                const modalContent = document.createElement('div');
+                modalContent.style.backgroundColor = 'white';
+                modalContent.style.padding = '40px';
+                modalContent.style.borderRadius = '10px';
+                modalContent.style.maxWidth = '500px';
+                modalContent.style.width = '90%';
+                modalContent.innerHTML = `
+                    <h3 style="margin-bottom: 20px; color: var(--primary-blue);">Get Started Today</h3>
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Tell us about your goals</label>
+                            <textarea class="form-control" id="message" rows="3"></textarea>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" id="closeModal">Close</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                `;
+                
+                modal.appendChild(modalContent);
+                document.body.appendChild(modal);
+                
+                // Close modal handler
+                document.getElementById('closeModal').addEventListener('click', () => {
+                    document.body.removeChild(modal);
+                });
+                
+                // Form submission handler
+                document.getElementById('contactForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    alert('Thank you for your interest! We will contact you soon.');
+                    document.body.removeChild(modal);
+                });
+                
+                // Close modal when clicking outside
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        document.body.removeChild(modal);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
